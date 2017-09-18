@@ -1,24 +1,27 @@
 import re
+import math
 
 def parseTxtWinQxas(file_content):
     peak = {}
     error = {}
 
     lines = file_content.split("\n")
-    Photopeaks = int(lines[4].split(',')[1].strip())
+    
+    Photopeaks_line = 4 # not sure if always...
+    Photopeaks = int(lines[Photopeaks_line].split(',')[1].strip())
 
-    for line in range(5, 5 + Photopeaks):
+    for line in range(Photopeaks_line+1, Photopeaks_line + Photopeaks + 1):
         Z = int(lines[line].split(',')[0].strip())
         peak[Z] = int(lines[line].split(',')[2].strip())
         error[Z] = int(lines[line].split(',')[3].strip())
         
     # Incoherent scattering peaks
-    if lines[5 + Photopeaks].startswith('Incoherent'):
-        Incoherents = int(lines[5 + Photopeaks].split(',')[1].strip())
-        print('##############')
-        print(Incoherents)
-    #data['sample'] = file_content.split(',')[0].split(':')[1].replace("\"", "").strip()
-    #data['current'] = re.sub(' +',' ',file_content.split(',')[12]).split(' ')[3]
-    #data['current'] = int(re.findall('\d+', data['current'])[0])
-    #data['livetime'] = int(re.sub(' +',' ',file_content.split(',')[12]).split(' ')[13])
+    if lines[Photopeaks_line + Photopeaks + 1].startswith('Incoherent'):
+            for line in range(Photopeaks_line + Photopeaks + 2, len(lines)):
+                if len(lines[line].strip()) != 0: 
+                    Z = int(lines[line].split(',')[0].strip())
+                    peak[Z] = peak[Z] + int(lines[line].split(',')[2].strip())
+                    Incoherent_error = int(lines[line].split(',')[3].strip())
+                    error[Z] = math.sqrt(Incoherent_error**2 + error[Z]**2)
+
     return({'peak': peak, 'error': error})
