@@ -13,8 +13,8 @@ def parseTxtWinQxas(file_content):
         error[Z] = int(lines[line].split(',')[3].strip())
         
     # Incoherent scattering peaks
-    if lines[5 + Photopeaks + 1].startswith('Incoherent'):
-        Incoherents = int(lines[5 + Photopeaks + 1].split(',')[1].strip())
+    if lines[5 + Photopeaks].startswith('Incoherent'):
+        Incoherents = int(lines[5 + Photopeaks].split(',')[1].strip())
         print('##############')
         print(Incoherents)
     #data['sample'] = file_content.split(',')[0].split(':')[1].replace("\"", "").strip()
