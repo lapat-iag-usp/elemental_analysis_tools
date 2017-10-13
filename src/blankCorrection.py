@@ -3,40 +3,36 @@ import math
 import pathlib
 import sys
 
-# importing 
-sys.path.append('./')
-from parseCsvShimadzu import parseCsvShimadzu
-from parseTxtWinQxas import parseTxtWinQxas
-
-
-def blankCorrection(csvs,txts):
+def blankCorrection(irradiation_parameters, peaks, errors):
     """
-    Receive a list of strings that each one is ... 
+    Receive a collection of blanks samples data (irradiation and fitting data) 
+    and return the correction for each element Z. The key in irradiation_parameters, 
+    peaks and errors must to be equal!
     """
-    peak = {}
-    error = {}
-    peak_return = {}
-    error_return ={}
+    if not(irradiation_parameters.keys() == peaks.keys() == errors.keys()): 
+        return False
         
-    keys = csvs.keys()
+    peaks_correction = {}
+    errors_correction ={}
+    peaks_by_it = {}
+    errors_by_it ={}
+    
+    keys = irradiation_parameters.keys()
     for key in keys:
-        csv_content = parseCsvShimadzu(csvs[key])
-        it = csv_content['livetime'] * csv_content['current']
+        it = irradiation_parameters[key]['livetime'] * irradiation_parameters[key]['current']
+        peaks_by_it[key] = {k:v/it for k,v in peaks[key].items()}
+        errors_by_it[key] = {k:v/it for k,v in errors[key].items()} 
         
-        txt_content = parseTxtWinQxas(txts[key])
-        for i in txt_content:
-            peak[key] = {k:v/it for k,v in txt_content['peak'].items()} 
-            error[key] = {k:v/it for k,v in txt_content['error'].items()}
-
-    # Trying to get a list of all Z (atomic number) taking in account 
-    all_Zs = [list(v.keys()) for v in peak.values()]
+    # seleciona todos Z disponíneis em todos arquivos
+    all_Zs = [list(v.keys()) for v in peaks.values()]
     Zs = list(set([x for sublist in all_Zs for x in sublist]))
     Zs.sort()
     
     # Mean
     for Z in Zs:
-        peak_return[Z] = sum(filter(None,[v.get(Z, None) for v in peak.values()]))/len(keys)
-        error_return[Z] = sum(filter(None,[v.get(Z, None) for v in error.values()]))/len(keys)
+        peaks_correction[Z] = sum(filter(None,[v.get(Z, None) for v in peaks_by_it.values()]))/len(keys)
+        errors_correction[Z] = sum(filter(None,[v.get(Z, None) for v in errors_by_it.values()]))/len(keys)
         
-    return({'peak': peak_return, 'error': error_return})
+    return({'peaks_correction': peaks_correction, 'errors_correction': errors_correction})
+   
 
