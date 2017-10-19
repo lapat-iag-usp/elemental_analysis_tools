@@ -1,3 +1,3 @@
-def calculateResponseFactor(N,density,current,time):
+def calculateResponseFactor(N,density,current,livetime):
 
-    return(N/(density*current*time))
+    return(N/(density*current*livetime))
