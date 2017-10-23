@@ -1,21 +1,17 @@
-Instalação do pip e virtualenv:
+Instalação das bibliotecas:
 
-    sudo apt-get install python-setuptools
-    sudo easy_install pip
-    sudo pip install virtualenv
+    pip3 install -r requirements.txt
 
-Criando, acessando e instalando bibliotecas virtualenv thiagolibs:
+Para recriar o arquivo se necessário:
 
-    cd ~
-    virtualenv -p python3 thiagolibs
-    . ~/thiagolibs/bin/activate
-    ~/thiagolibs/bin/pip3 install flask
+    pip3 freeze > requirements.txt
 
-Listar bibliotecas instaladas em thiagolibs:
+Banco de dados:
 
-    ~/thiagolibs/bin/pip3 freeze > requirements.txt
+    python3 run.py db migrate
+    python3 run.py db upgrade
+    
+Para executar:
 
-Instalar bibliotecas a partir de uma arquivo:
-
-    ~/thiagolibs/bin/pip3 install -r requirements.txt
+    python3 run.py runserver
 
