@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ super() }} - EDX Calibration {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        
+
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Código Micromatter</th>
+                <th>Descrição</th>
+                <th>Modelo WinqXas</th>
+                <th>Upload .csv EDX</th>
+                <th>Upload .txt Winqxas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in micromatter_IAGUSP %}
+            <tr>
+                <td> {{ i[0] }} </td> 
+                <td> {{ i[1] }} </td> 
+                <td> <a href="http://143.107.8.48/research/winqxas/models/micromatter/iag/{{ i[1] }}.mod"> model {{ i[0] }} </a> </td> 
+                <td><input type="file" name="photo" id="photo" accept=".csv"></td>
+                <td><input type="file" name="photo" id="photo"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        <button type="submit" class="btn btn-success"> Enviar </button>
+    </form>
+    </br>
+    </div>
+</div>
+{% endblock %}
+
