@@ -10,6 +10,7 @@ import os
 import csv
 
 @app.route("/edxcalibration/new",methods=['GET', 'POST'])
+@login_required
 def newEdxcalibration():
     form = EdxcalibrationForm()
     if form.validate_on_submit():

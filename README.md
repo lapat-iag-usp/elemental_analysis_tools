@@ -15,3 +15,9 @@ Para executar:
 
     python3 run.py runserver
 
+Usuário no postgres:
+
+    INSERT INTO users (id, username,password,email) VALUES ((SELECT nextval ('users_id_seq')),'admin','admin','admin@example.com');
+
+sudo pip3 install pyxray
+

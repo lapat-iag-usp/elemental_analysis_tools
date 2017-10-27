@@ -1,5 +1,14 @@
 import re
 import math
+import pyxray
+
+def checkLine(Z,energy):
+    ok=None
+    try:
+        ok = pyxray.xray_transition_energy_eV(Z, 'La1')
+    except:
+        print("não tem")
+    print(ok)
 
 def parseTxtWinQxas(file_content):
     peaks = {}
@@ -12,9 +21,14 @@ def parseTxtWinQxas(file_content):
 
     for line in range(Photopeakss_line+1, Photopeakss_line + Photopeakss + 1):
         Z = int(lines[line].split(',')[0].strip())
-        peaks[Z] = int(lines[line].split(',')[2].strip())
-        errors[Z] = int(lines[line].split(',')[3].strip())
+        energy = float(lines[line].split(',')[1].strip())
+        peak = int(lines[line].split(',')[2].strip())
+        error = int(lines[line].split(',')[3].strip())
         
+        peaks[Z] = peak
+        errors[Z] = error
+        checkLine(Z,energy)
+
     # Incoherent scattering peakss
     if lines[Photopeakss_line + Photopeakss + 1].startswith('Incoherent'):
             for line in range(Photopeakss_line + Photopeakss + 2, len(lines)):
@@ -25,3 +39,6 @@ def parseTxtWinQxas(file_content):
                     errors[Z] = math.sqrt(Incoherent_errors**2 + errors[Z]**2)
 
     return({'peaks': peaks, 'errors': errors})
+
+
+
