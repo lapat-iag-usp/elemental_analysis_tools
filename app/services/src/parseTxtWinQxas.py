@@ -3,16 +3,24 @@ import math
 import pyxray
 
 def checkLine(Z,energy):
-    ok=None
+    Ka1=False
     try:
-        ok = pyxray.xray_transition_energy_eV(Z, 'La1')
+        Ka1 = pyxray.xray_transition_energy_eV(Z, 'Ka1')/1000
     except:
-        print("não tem")
-    print(ok)
+        pass
+    if Ka1:
+        if energy > (Ka1-2.0) and energy < (Ka1+2.0):
+            return('K')
+        else:
+            return('L')
+    else:
+        return('L')
 
 def parseTxtWinQxas(file_content):
-    peaks = {}
-    errors = {}
+    r = {
+            'K': {'peaks': {}, 'errors': {}},
+            'L': {'peaks': {}, 'errors': {}}
+        }
 
     lines = file_content.split("\n")
     
@@ -24,21 +32,24 @@ def parseTxtWinQxas(file_content):
         energy = float(lines[line].split(',')[1].strip())
         peak = int(lines[line].split(',')[2].strip())
         error = int(lines[line].split(',')[3].strip())
-        
-        peaks[Z] = peak
-        errors[Z] = error
-        checkLine(Z,energy)
+        line=checkLine(Z,energy)
 
-    # Incoherent scattering peakss
+        r[line]['peaks'][Z] = peak
+        r[line]['errors'][Z] = error
+        
+    # Incoherent scattering peaks
     if lines[Photopeakss_line + Photopeakss + 1].startswith('Incoherent'):
             for line in range(Photopeakss_line + Photopeakss + 2, len(lines)):
                 if len(lines[line].strip()) != 0: 
-                    Z = int(lines[line].split(',')[0].strip())
-                    peaks[Z] = peaks[Z] + int(lines[line].split(',')[2].strip())
-                    Incoherent_errors = int(lines[line].split(',')[3].strip())
-                    errors[Z] = math.sqrt(Incoherent_errors**2 + errors[Z]**2)
-
-    return({'peaks': peaks, 'errors': errors})
-
-
-
+                    iZ = int(lines[line].split(',')[0].strip())
+                    ienergy = float(lines[line].split(',')[1].strip())
+                    ipeak = int(lines[line].split(',')[2].strip())
+                    ierror = int(lines[line].split(',')[3].strip())
+                    iline=checkLine(iZ,ienergy)
+                
+                    if r[iline]['peaks'][iZ]:
+                        r[iline]['peaks'][iZ] = r[iline]['peaks'][iZ] + ipeak
+    
+                    if r[iline]['errors'][iZ]:
+                        r[iline]['errors'][iZ] = math.sqrt(ierror**2 + r[iline]['errors'][iZ]**2)
+    return(r)
