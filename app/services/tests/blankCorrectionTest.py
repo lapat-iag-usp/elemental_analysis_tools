@@ -46,7 +46,6 @@ for key in keys:
     txt_content = parseTxtWinQxas(txts[key])
     peaks[key] = txt_content['peaks'] 
     errors[key] = txt_content['errors']
-        
 
 class Test_blankCorrection(unittest.TestCase):
 
@@ -57,12 +56,10 @@ class Test_blankCorrection(unittest.TestCase):
     def test_26(self):
         self.assertAlmostEqual(blankCorrection(irradiation_parameters,peaks, errors)['peaks_correction'][26],(2195/it1  + 2610/it2 + 2124/it3)/3)
         self.assertAlmostEqual(blankCorrection(irradiation_parameters,peaks, errors)['errors_correction'][26],(230/it1 + 245/it2 + 234/it3)/3)
-
       
     def test_29(self):
         self.assertAlmostEqual(blankCorrection(irradiation_parameters,peaks, errors)['peaks_correction'][29],(7278/it1 + 7773/it2 + 7556/it3)/3)
         self.assertAlmostEqual(blankCorrection(irradiation_parameters,peaks, errors)['errors_correction'][29],(423/it1 + 449/it2 + 430/it3)/3)
-              
 
 if __name__ == '__main__':
     unittest.main()
