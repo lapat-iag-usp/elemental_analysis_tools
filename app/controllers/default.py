@@ -2,7 +2,7 @@ from flask import render_template, flash, url_for, redirect
 from flask_login import login_user, logout_user, login_required
 from app import app, db, lm
 
-from app.models.LoginForm import LoginForm
+from app.models.forms.LoginForm import LoginForm
 from app.models.User import User
 
 @lm.user_loader
@@ -25,7 +25,7 @@ def login():
             return redirect(url_for("index"))
         else:
             flash("Login Inválido")
-    return render_template('login.html',form=form)
+    return render_template('user/login.html',form=form)
 
 @app.route("/logout")
 @login_required

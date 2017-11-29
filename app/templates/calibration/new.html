@@ -5,8 +5,15 @@
 {% block body %}
 <div class="row">
     <div class="col-xs-12 col-md-8">
-        
+    <br />
+     <form method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        {{ form.description.label }}: {{ form.description(size=20) }}
 
+        <button type="submit" class="btn btn-success"> Cadastrar </button>
+    </form>
+
+{#
     <form method="POST" enctype="multipart/form-data">
         {{ form.csrf_token }}
         <table class="table table-condensed">
@@ -33,6 +40,8 @@
         </table>
         <button type="submit" class="btn btn-success"> Enviar </button>
     </form>
+
+#}
     </br>
     </div>
 </div>
