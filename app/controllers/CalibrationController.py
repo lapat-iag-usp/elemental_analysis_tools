@@ -33,7 +33,7 @@ def newCalibration():
 #        f = form.photo.data
 #        filename = secure_filename(f.filename)
 #        f.save(os.path.join('photos', filename))
-        return redirect(url_for('indexEdxcalibration'))
+        return redirect(url_for('indexCalibration'))
 
     # ler csv da micromatter
     micromatter_IAGUSP = []
@@ -45,13 +45,14 @@ def newCalibration():
     # remove cabeçalho
     micromatter_IAGUSP.pop(0)
 
-    return render_template('edxcalibration/new.html',
+    return render_template('calibration/new.html',
         form=form,
         micromatter_IAGUSP=micromatter_IAGUSP)
 
 
 @app.route("/calibration/index",methods=['GET', 'POST'])
 @login_required
-def indexEdxcalibration():
+def indexCalibration():
+    calibrations = Calibration.query.all()
     return render_template('calibration/index.html',
-        test='test1')
+        calibrations=calibrations)
