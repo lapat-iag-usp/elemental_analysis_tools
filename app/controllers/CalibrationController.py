@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 from app.models.Calibration import Calibration
 from app.models.User import User
 
-from app.models.forms.CalibrationForm import CalibrationForm
+from app.models.forms.CalibrationForm import CalibrationForm, CalibrationFormFiles
 
 import sys
 import os
@@ -28,7 +28,6 @@ def newCalibration():
         db.session.add(x)
         db.session.commit()
 
-        
         #print(description)
 #        f = form.photo.data
 #        filename = secure_filename(f.filename)
@@ -49,10 +48,19 @@ def newCalibration():
         form=form,
         micromatter_IAGUSP=micromatter_IAGUSP)
 
-
 @app.route("/calibration/index",methods=['GET', 'POST'])
 @login_required
 def indexCalibration():
     calibrations = Calibration.query.all()
     return render_template('calibration/index.html',
         calibrations=calibrations)
+
+@app.route("/calibration",defaults={'id': 0})
+@app.route("/calibration/<id>")
+@login_required
+def showCalibration(id):
+    form = CalibrationFormFiles()
+    calibration = Calibration.query.filter_by(id=id).first()
+    return render_template('calibration/show.html',
+            calibration=calibration,
+            form=form)

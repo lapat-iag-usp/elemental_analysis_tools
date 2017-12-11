@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ super() }} - show {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <br>
+        <ul>
+            <li>id: {{ calibration.id }} </li>
+            <li>description: {{ calibration.description}} </li>
+            <li>operator: {{ calibration.user_id}} </li>
+        </ul>
+        <h3>You can download all winqxas models for micromatter IAG sample <a href="#">here </a></h3>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {{ form.csrf_token }}
+            <div class="well">
+                <label> csv file from EDX</label>
+                {{ form.csv }} 
+            </div>
+            
+
+            <div class="well">
+                <label> txt file from WinQxas</label>
+                {{ form.txt }}
+            </div>
+             
+
+            <div class="well">
+                <label> Micromatter ID</label>
+                {{ form.micromatter_id }}
+            </div>
+
+            <button type="submit" class="btn btn-primary"> Send </button>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

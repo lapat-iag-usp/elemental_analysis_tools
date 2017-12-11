@@ -16,7 +16,7 @@
             <tbody>
                 {% for calibration in calibrations %}
                 <tr>
-                    <td> {{ calibration.description}} </td> 
+                    <td> <a href="{{ calibration.id}}">{{ calibration.description }}</a></td> 
                     <td> {{ calibration.user_id }} </td> 
                 </tr>
                 {% endfor %}

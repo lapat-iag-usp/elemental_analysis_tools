@@ -18,4 +18,4 @@ lm = LoginManager()
 lm.init_app(app)
 
 from app.controllers import default, CalibrationController
-from app.models import User, Calibration
+from app.models import User, Calibration, CalibrationFiles
