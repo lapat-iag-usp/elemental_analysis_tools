@@ -10,8 +10,11 @@ Para recriar o arquivo se necessário:
 
 Banco de dados:
 
-    python3 run.py db migrate
     python3 run.py db upgrade
+
+Criar pasta files:
+
+    mkdir files
     
 Para executar:
 

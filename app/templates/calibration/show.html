@@ -18,13 +18,13 @@
             {{ form.csrf_token }}
             <div class="well">
                 <label> csv file from EDX</label>
-                {{ form.csv }} 
+                {{ form.csv_file }} 
             </div>
             
 
             <div class="well">
                 <label> txt file from WinQxas</label>
-                {{ form.txt }}
+                {{ form.txt_file }}
             </div>
              
 
@@ -36,6 +36,22 @@
             <button type="submit" class="btn btn-primary"> Send </button>
 
         </form>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Micromatter ID</th>
+                    <th>Z/mass</th>
+                </td>
+            </thead>
+            <tbody>
+                {% for i in uploads %} 
+                    <tr>
+                        <td>{{ i.micromatter_id }}</td>
+                        <td>TODO!</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
     </div>
 </div>
 {% endblock %}
