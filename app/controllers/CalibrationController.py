@@ -12,6 +12,8 @@ from app.models.User import User
 
 from app.models.forms.CalibrationForm import CalibrationForm, CalibrationFormFiles
 
+from app.scripts.Micromatter import getSample
+
 @app.route("/calibration/new",methods=['GET', 'POST'])
 @login_required
 def newCalibration():
@@ -68,9 +70,17 @@ def showCalibration(id):
 
         return redirect(url_for('showCalibration',id=calibration.id))
 
+    # get all uploaded files from this calibration
     uploads = CalibrationFiles.query.filter_by(calibration_id=calibration.id).all()
+    
+    # adding micrommater info
+    info = {}
+    for i in uploads:
+        info[i.micromatter_id] = getSample(i.micromatter_id)
+    
     return render_template('calibration/show.html',
             calibration=calibration,
             form=form,
+            info=info,
             uploads = uploads
     )

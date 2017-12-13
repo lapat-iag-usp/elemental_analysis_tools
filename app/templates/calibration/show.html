@@ -16,21 +16,20 @@
         <form method="POST" enctype="multipart/form-data">
 
             {{ form.csrf_token }}
+
+            <div class="well">
+                <label> Micromatter ID</label>
+                {{ form.micromatter_id }}
+            </div>
+
             <div class="well">
                 <label> csv file from EDX</label>
                 {{ form.csv_file }} 
             </div>
             
-
             <div class="well">
                 <label> txt file from WinQxas</label>
                 {{ form.txt_file }}
-            </div>
-             
-
-            <div class="well">
-                <label> Micromatter ID</label>
-                {{ form.micromatter_id }}
             </div>
 
             <button type="submit" class="btn btn-primary"> Send </button>
@@ -41,14 +40,22 @@
             <thead>
                 <tr>
                     <th>Micromatter ID</th>
-                    <th>Z/mass</th>
+                    <th>Z: R</th>
                 </td>
             </thead>
             <tbody>
                 {% for i in uploads %} 
                     <tr>
-                        <td>{{ i.micromatter_id }}</td>
-                        <td>TODO!</td>
+                        {% if info[i.micromatter_id][5] == '' %}
+                            <td>{{ i.micromatter_id }} </td>
+                            <td>{{ info[i.micromatter_id][3] }} : {{ info[i.micromatter_id][4] }}</td>
+                        {% else %}
+                            <td>{{ i.micromatter_id }} </td>
+                            <td>
+                                {{ info[i.micromatter_id][3]}} : {{ info[i.micromatter_id][4] }} <br>
+                                {{ info[i.micromatter_id][5]}} : {{ info[i.micromatter_id][6] }}
+                            </td>
+                        {% endif %}           
                     </tr>
                 {% endfor %}
             </tbody>

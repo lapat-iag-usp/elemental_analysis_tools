@@ -31,4 +31,10 @@ def serials4flask():
         retorno.append(tupla)
     return retorno
 
+def getSample(id):
+    with open('app/scripts/tests/data/calibration/micromatter_IAGUSP.csv') as linhas:
+        linhascsv = csv.reader(linhas,delimiter=',')
+        for linha in linhascsv:
+            if linha[0] == id:
+                return(linha)
 
