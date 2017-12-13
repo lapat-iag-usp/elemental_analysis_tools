@@ -1,5 +1,6 @@
 import sys
 import os
+import pathlib
 
 from flask import render_template, flash, url_for, redirect
 from flask_login import login_user, logout_user, login_required,current_user
@@ -13,6 +14,9 @@ from app.models.User import User
 from app.models.forms.CalibrationForm import CalibrationForm, CalibrationFormFiles
 
 from app.scripts.Micromatter import getSample
+from app.scripts.parseTxtWinQxas import parseTxtWinQxas
+from app.scripts.parseCsvShimadzu import parseCsvShimadzu
+from app.scripts.calculateResponseFactor import calculateResponseFactor
 
 @app.route("/calibration/new",methods=['GET', 'POST'])
 @login_required
@@ -73,14 +77,50 @@ def showCalibration(id):
     # get all uploaded files from this calibration
     uploads = CalibrationFiles.query.filter_by(calibration_id=calibration.id).all()
     
+    ######################################## TODO: conver to externa function
     # adding micrommater info
     info = {}
+    ResponseFactors = {}
     for i in uploads:
-        info[i.micromatter_id] = getSample(i.micromatter_id)
-    
+
+        info[] = 
+        # txt
+        txt_content = pathlib.Path('files/' + i.txt_file).read_text()
+        txt_info = parseTxtWinQxas(txt_content)
+
+        # csv
+        csv_content = pathlib.Path('files/' + i.csv_file).read_text()
+        csv_info = parseCsvShimadzu(csv_content)
+
+        ResponseFactors[i.micromatter_id] = {}
+
+        # element 1 - K elements       
+        try:
+            Z = int(info[i.micromatter_id][3])
+            density = float(info[i.micromatter_id][4])
+            N = txt_info['K']['peaks'][Z]
+            ResponseFactors[i.micromatter_id][Z] = calculateResponseFactor(N,density,csv_info['current'],csv_info['livetime'])
+            ResponseFactors[i.micromatter_id][Z]['line'] = 'K'
+        except:
+           pass
+
+        # element 2 - K elements
+        try:
+            Z = int(info[i.micromatter_id][5])
+            density = float(info[i.micromatter_id][6])
+            N = txt_info['K']['peaks'][Z]
+            ResponseFactors[i.micromatter_id][Z] = calculateResponseFactor(N,density,csv_info['current'],csv_info['livetime'])
+            ResponseFactors[i.micromatter_id][Z]['line'] = 'K'
+        except:
+           pass
+        print(ResponseFactors)
+    #####################################################################
+
     return render_template('calibration/show.html',
             calibration=calibration,
             form=form,
             info=info,
-            uploads = uploads
+            uploads = uploads,
+            ResponseFactors = ResponseFactors
     )
+

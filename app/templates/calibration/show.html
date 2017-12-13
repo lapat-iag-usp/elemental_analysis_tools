@@ -11,7 +11,7 @@
             <li>description: {{ calibration.description}} </li>
             <li>operator: {{ calibration.user_id}} </li>
         </ul>
-        <h3>You can download all winqxas models for micromatter IAG sample <a href="#">here </a></h3>
+        <h3>You can download all WinQxas models for micromatter IAG sample <a href="#">here </a></h3>
 
         <form method="POST" enctype="multipart/form-data">
 
@@ -40,20 +40,28 @@
             <thead>
                 <tr>
                     <th>Micromatter ID</th>
-                    <th>Z: R</th>
+                    <th>Line</th>
+                    <th>Z: R +- error</th>
                 </td>
             </thead>
             <tbody>
                 {% for i in uploads %} 
                     <tr>
+                        {% set Z1 = info[i.micromatter_id][3] | int %}
+                        {% set line = 'line' %}
                         {% if info[i.micromatter_id][5] == '' %}
                             <td>{{ i.micromatter_id }} </td>
-                            <td>{{ info[i.micromatter_id][3] }} : {{ info[i.micromatter_id][4] }}</td>
+                            <td>{{ ResponseFactors[i.micromatter_id][Z1][line] }} </td>
+                            <td>{{ Z1 }} : {{ ResponseFactors[i.micromatter_id][Z1] }}</td>
                         {% else %}
+                            {% set Z2 = info[i.micromatter_id][5] | int %}
                             <td>{{ i.micromatter_id }} </td>
                             <td>
-                                {{ info[i.micromatter_id][3]}} : {{ info[i.micromatter_id][4] }} <br>
-                                {{ info[i.micromatter_id][5]}} : {{ info[i.micromatter_id][6] }}
+
+                            </td>
+                            <td>
+                                {{ Z1 }} : {{ ResponseFactors[i.micromatter_id][Z1] }} <br>
+                                {{ Z2 }} : {{ ResponseFactors[i.micromatter_id][Z2] }}
                             </td>
                         {% endif %}           
                     </tr>
