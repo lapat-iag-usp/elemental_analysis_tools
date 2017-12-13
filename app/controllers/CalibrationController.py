@@ -83,7 +83,7 @@ def showCalibration(id):
     ResponseFactors = {}
     for i in uploads:
 
-        info[] = 
+        info[i.micromatter_id] = getSample(i.micromatter_id)
         # txt
         txt_content = pathlib.Path('files/' + i.txt_file).read_text()
         txt_info = parseTxtWinQxas(txt_content)
@@ -113,7 +113,8 @@ def showCalibration(id):
             ResponseFactors[i.micromatter_id][Z]['line'] = 'K'
         except:
            pass
-        print(ResponseFactors)
+
+        #print(ResponseFactors)
     #####################################################################
 
     return render_template('calibration/show.html',
