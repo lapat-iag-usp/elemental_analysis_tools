@@ -36,7 +36,7 @@ def parseTxtWinQxas(file_content):
 
         r[line]['peaks'][Z] = peak
         r[line]['errors'][Z] = error
-        
+    """  
     # Incoherent scattering peaks
     if lines[Photopeakss_line + Photopeakss + 1].startswith('Incoherent'):
             for line in range(Photopeakss_line + Photopeakss + 2, len(lines)):
@@ -52,4 +52,5 @@ def parseTxtWinQxas(file_content):
     
                     if r[iline]['errors'][iZ]:
                         r[iline]['errors'][iZ] = math.sqrt(ierror**2 + r[iline]['errors'][iZ]**2)
+    """
     return(r)
