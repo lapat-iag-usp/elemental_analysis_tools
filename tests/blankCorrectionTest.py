@@ -3,7 +3,7 @@ import pathlib
 import sys
 import math
 
-sys.path.append('../src')
+sys.path.append('../')
 from blankCorrection import blankCorrection
 from parseCsvShimadzu import parseCsvShimadzu
 from parseTxtWinQxas import parseTxtWinQxas

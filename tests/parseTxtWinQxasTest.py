@@ -4,7 +4,7 @@ import sys
 import math
 
 # importing parseCsvShimadzu  
-sys.path.append('../src')
+sys.path.append('../')
 from parseTxtWinQxas import parseTxtWinQxas
 
 # test data
