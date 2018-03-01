@@ -1,5 +1,1 @@
-"""
-eas
-"""
-
-from eas.Shimadzu import *
+from Shimadzu import *
