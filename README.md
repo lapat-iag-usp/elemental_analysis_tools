@@ -1,14 +1,14 @@
-Instalação das bibliotecas:
+Modules install:
 
     virtualenv -p python3 .vendor
     . .vendor/bin/activate
     .vendor/bin/pip3 install -r requirements.txt
 
-Para recriar o arquivo se necessário:
+If needed, recreate the requirements.txt:
 
     .vendor/bin/pip3 freeze > requirements.txt
 
-Sair do virtualenv:
+Logout from virtualenv:
 
     deactivate
 
