@@ -1,6 +1,6 @@
 import csv 
 
-def Micromatter():
+def Micromatter(object):
 
     def csv2list():
         micromatter_IAGUSP = []
@@ -25,7 +25,7 @@ def Micromatter():
         micromatter_IAGUSP.pop(0)
         return micromatter_IAGUSP
 
-    def serials4flask():
+    def serials4flask(self):
         retorno = []
         lista = serials()
         for i in lista:
