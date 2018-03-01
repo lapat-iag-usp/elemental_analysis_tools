@@ -1,6 +1,6 @@
 import re
 
-class Shimadzu()
+class Shimadzu():
 
     def parseCsv(file_content):
         irradiation_parameters = {}
