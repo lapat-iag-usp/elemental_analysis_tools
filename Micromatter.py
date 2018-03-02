@@ -1,35 +1,21 @@
 import csv 
 import os
 
-def csv2list():
-    micromatter_IAGUSP = []
+def data():
+    micromatter = []
     with open( os.path.join(os.path.dirname(__file__), 'data/micromatter.csv')) as linhas:
         linhascsv = csv.reader(linhas,delimiter=',')
         for linha in linhascsv:
-            micromatter_IAGUSP.append(linha)
+            micromatter.append(linha)
 
     # remove cabeçalho
-    micromatter_IAGUSP.pop(0)
-    return micromatter_IAGUSP
+    micromatter.pop(0)
+    return micromatter
 
-
-def serials():
-    micromatter_IAGUSP = []
-    with open( os.path.join(os.path.dirname(__file__), 'data/micromatter.csv')) as linhas:
-        linhascsv = csv.reader(linhas,delimiter=',')
-        for linha in linhascsv:
-            micromatter_IAGUSP.append(linha[0])
-
-    # remove cabeçalho
-    micromatter_IAGUSP.pop(0)
-    return micromatter_IAGUSP
-
-def serials4flask():
+def ids():
     retorno = []
-    lista = serials()
-    for i in lista:
-        tupla = (i,i)
-        retorno.append(tupla)
+    for i in data():
+        retorno.append(i[0])
     return retorno
 
 def getSample(id):
