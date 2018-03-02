@@ -2,7 +2,7 @@ import csv
 
 def csv2list():
     micromatter_IAGUSP = []
-    with open('app/services/tests/data/calibration/micromatter_IAGUSP.csv') as linhas:
+    with open('data/micromatter.csv') as linhas:
         linhascsv = csv.reader(linhas,delimiter=',')
         for linha in linhascsv:
             micromatter_IAGUSP.append(linha)
@@ -14,7 +14,7 @@ def csv2list():
 
 def serials():
     micromatter_IAGUSP = []
-    with open('app/scripts/tests/data/calibration/micromatter_IAGUSP.csv') as linhas:
+    with open('data/micromatter.csv') as linhas:
         linhascsv = csv.reader(linhas,delimiter=',')
         for linha in linhascsv:
             micromatter_IAGUSP.append(linha[0])
