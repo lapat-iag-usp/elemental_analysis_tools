@@ -1,9 +1,9 @@
 import csv 
-import sys
+import os
 
 def csv2list():
     micromatter_IAGUSP = []
-    with open('data/micromatter.csv') as linhas:
+    with open( os.path.join(os.path.dirname(__file__), 'data/micromatter.csv')) as linhas:
         linhascsv = csv.reader(linhas,delimiter=',')
         for linha in linhascsv:
             micromatter_IAGUSP.append(linha)
@@ -15,7 +15,7 @@ def csv2list():
 
 def serials():
     micromatter_IAGUSP = []
-    with open('data/micromatter.csv') as linhas:
+    with open( os.path.join(os.path.dirname(__file__), 'data/micromatter.csv')) as linhas:
         linhascsv = csv.reader(linhas,delimiter=',')
         for linha in linhascsv:
             micromatter_IAGUSP.append(linha[0])
