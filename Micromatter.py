@@ -1,4 +1,5 @@
 import csv 
+import sys
 
 def csv2list():
     micromatter_IAGUSP = []
