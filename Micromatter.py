@@ -1,7 +1,6 @@
-import csv 
-
-def Micromatter(object):
-
+class Micromatter:
+    import csv 
+    
     def csv2list():
         micromatter_IAGUSP = []
         with open('app/services/tests/data/calibration/micromatter_IAGUSP.csv') as linhas:
@@ -39,4 +38,7 @@ def Micromatter(object):
             for linha in linhascsv:
                 if linha[0] == id:
                     return(linha)
+          
+    def bla():
+        return "bal bla"
 
