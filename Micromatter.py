@@ -39,5 +39,5 @@ def getSample(id):
                 return(linha)
   
 def bla():
-    return "bal bla"
+    return sys.path[0]
 
