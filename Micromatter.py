@@ -18,6 +18,13 @@ def ids():
         retorno.append(i[0])
     return retorno
 
+def idsTuplas():
+    retorno = []
+    for i in data():
+        retorno.append((i[0],i[0]))
+    return retorno
+
+
 def getSample(id):
     with open('app/scripts/tests/data/calibration/micromatter_IAGUSP.csv') as linhas:
         linhascsv = csv.reader(linhas,delimiter=',')
