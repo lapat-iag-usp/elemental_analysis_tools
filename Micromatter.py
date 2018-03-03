@@ -24,14 +24,8 @@ def idsTuplas():
         retorno.append((i[0],i[0]))
     return retorno
 
-
-def getSample(id):
-    with open('app/scripts/tests/data/calibration/micromatter_IAGUSP.csv') as linhas:
-        linhascsv = csv.reader(linhas,delimiter=',')
-        for linha in linhascsv:
-            if linha[0] == id:
-                return(linha)
+def get(id):
+    for i in data():
+        if str(i[0])==str(id):
+            return i
   
-def bla():
-    return sys.path[0]
-
