@@ -16,7 +16,7 @@ def checkLine(Z,energy):
     else:
         return('L')
 
-def parseTxtWinQxas(file_content):
+def parseTxt(file_content):
     r = {
             'K': {'peaks': {}, 'errors': {}},
             'L': {'peaks': {}, 'errors': {}}
