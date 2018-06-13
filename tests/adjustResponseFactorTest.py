@@ -10,11 +10,6 @@ from adjustResponseFactor import adjustResponseFactor
 file_path='data/ghana/calibration/K.csv'
 file_content = pathlib.Path(file_path).read_text()
 
-a=adjustResponseFactor(file_content)
-print(a)
-
-
-"""
 class Test_parseCsvShimadzu(unittest.TestCase):
 
     def test_sample(self):
@@ -28,4 +23,3 @@ class Test_parseCsvShimadzu(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-"""

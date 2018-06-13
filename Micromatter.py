@@ -1,31 +1,35 @@
 import csv 
 import os
 
-def data():
-    micromatter = []
-    with open( os.path.join(os.path.dirname(__file__), 'data/micromatter.csv')) as linhas:
-        linhascsv = csv.reader(linhas,delimiter=',')
-        for linha in linhascsv:
-            micromatter.append(linha)
+def getMasses(file_content,serial):
 
-    # remove cabeçalho
-    micromatter.pop(0)
-    return micromatter
+    lines = file_content.split("\n")
 
-def ids():
-    retorno = []
-    for i in data():
-        retorno.append(i[0])
-    return retorno
+    # remove empty lines
+    lines = [x for x in lines if x]
 
-def idsTuplas():
-    retorno = []
-    for i in data():
-        retorno.append((i[0],i[0]))
-    return retorno
+    r = {}
+    for line in lines:
+        cols = line.split(',')
+            
+        if str(cols[0]) == str(serial):
+            r['total'] = float(cols[2])
+            r[int(cols[3])] = float(cols[4])
+            if len(cols) > 5:
+                r[int(cols[5])] = float(cols[6])           
+    return(r)
 
-def get(id):
-    for i in data():
-        if str(i[0])==str(id):
-            return i
+def getIds(file_content):
+    lines = file_content.split("\n")
+
+    # remove empty lines
+    lines = [x for x in lines if x]
+
+    r = []
+    for line in lines:
+        cols = line.split(',')
+        r.append(cols[0])
+    r.pop(0)
+    return r
+
   

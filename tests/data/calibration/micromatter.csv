@@ -1,4 +1,4 @@
-serial,standard ,density_ug/cm2,element1,mass1,element2,mass2
+serial,description,density_ug/cm2,element1,mass1,element2,mass2
 34662,Na como NaCl,49.8,11,19.5899428492,17,30.2100571508
 34663,MgF2,51.8,12,20.2080678247,,
 34664,Al Metal,50,13,50,,
