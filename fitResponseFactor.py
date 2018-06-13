@@ -22,21 +22,20 @@ def experimentalData(file_content):
     Z = numpy.array([])
     Y = numpy.array([])
     Yerror = numpy.array([])
-    for line in range(0,len(lines)-1):
-        current_line = lines[line].split(',')
+    for line in lines:
+        current_line = line.split(',')
         Z = numpy.append(Z,float(current_line[0]))
         Y = numpy.append(Y,float(current_line[1]))
         Yerror = numpy.append(Yerror,float(current_line[2]))
 
-    return( {'Z': Z, 'Y': Y, Yerror:Yerror} )
+    return( {'Z': Z , 'Y': Y , 'Yerror': Yerror} )
 
-def fitResponseFactor(file_content, degree = 9):
+def fitResponseFactor(experimental_data, degree = 9):
 
-    data = experimentalData(file_content)
-    Z = numpy.array(data['Z'])
-    Y = numpy.array(data['Y'])
-    Yerror = numpy.array(data['Yerror'])
-    print(Z)
+    data = experimentalData(experimental_data)
+    Z = data['Z']
+    Y = data['Y']
+    Yerror = data['Yerror']
     
     # Matrix X, each colunm like [1 z z^2 z^3 ... z^n] ...
     X = numpy.vstack([Z**j for j in range(degree)]).T
@@ -78,11 +77,14 @@ def fitResponseFactor(file_content, degree = 9):
     
     return({'coefficients': A, 'coefficients_errors': coefficients_errors})
 
-def plotFit(file_content,start=11.0,end=42.0,degree=9):
+def plotFit(experimental_data,start=11.0,end=42.0,degree=9):
 
+    data = experimentalData(experimental_data)
+    Z = data['Z']
+    Y = data['Y']
+    Yerror = data['Yerror']
 
-
-    coefficients = fitResponseFactor(file_content)['coefficients']
+    coefficients = fitResponseFactor(experimental_data)['coefficients']
     #Calculo do fator de resposta em um espaço com mais pontos, para plotar gráfico
     Zplot = numpy.linspace(start,end,600) 
     Xplot = numpy.vstack([Zplot**j for j in range(degree)]).T
