@@ -4,22 +4,18 @@ import sys
 
 # importing parseCsvShimadzu  
 sys.path.append('../')
-from adjustResponseFactor import adjustResponseFactor
+from fitResponseFactor import fitResponseFactor
+from fitResponseFactor import plotFit
 
 # test data
-file_path='data/ghana/calibration/K.csv'
+file_path='data/calibration/akerr/K2010MaioMedidosAkerr.csv'
 file_content = pathlib.Path(file_path).read_text()
 
-class Test_parseCsvShimadzu(unittest.TestCase):
+class adjustResponseFactorTest(unittest.TestCase):
 
     def test_sample(self):
-        self.assertEqual(parseCsvShimadzu(file_content)['sample'],"AFR390")
-
-    def test_current(self):
-        self.assertEqual(parseCsvShimadzu(file_content)['current'],1000)
-
-    def test_livetime(self):
-        self.assertEqual(parseCsvShimadzu(file_content)['livetime'],959)
+        plotFit(file_content,start=11.0,end=42.0,degree=9)
+        self.assertEqual(None,None)
 
 if __name__ == '__main__':
     unittest.main()
