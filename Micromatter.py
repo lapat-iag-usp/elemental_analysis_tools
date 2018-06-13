@@ -3,7 +3,7 @@ import os
 import pathlib
 import sys
 
-def getMasses(serial , file_content = None):
+def get(serial , file_content = None):
 
     if file_content is None:
         file_content = defaultFile()
@@ -20,7 +20,8 @@ def getMasses(serial , file_content = None):
             r['total'] = float(cols[2])
             r[int(cols[3])] = float(cols[4])
             if len(cols) > 5:
-                r[int(cols[5])] = float(cols[6])
+                if cols[6] != '':
+                    r[int(cols[5])] = float(cols[6])
     return(r)
 
 def getSerials(file_content = None):
