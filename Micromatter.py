@@ -50,6 +50,6 @@ def serialsAsTuples(file_content = None):
     return r
 
 def defaultFile():
-    file_path='tests/data/calibration/micromatter.csv'
+    file_path = os.path.join(os.path.dirname(__file__), 'tests/data/calibration/micromatter.csv')
     return(pathlib.Path(file_path).read_text())
 
