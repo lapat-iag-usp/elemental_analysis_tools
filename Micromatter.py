@@ -23,10 +23,12 @@ def getMasses(serial , file_content = None):
                 r[int(cols[5])] = float(cols[6])
     return(r)
 
-def getIds(file_content = None):
+def getSerials(file_content = None):
 
     if file_content is None:
         file_content = defaultFile()
+
+    lines = file_content.split("\n")
 
     # remove empty lines
     lines = [x for x in lines if x]
@@ -36,6 +38,15 @@ def getIds(file_content = None):
         cols = line.split(',')
         r.append(cols[0])
     r.pop(0)
+    return r
+
+def serialsAsTuples(file_content = None):
+    if file_content is None:
+        file_content = defaultFile()
+
+    r = []
+    for i in getSerials(file_content):
+        r.append((i,i))
     return r
 
 def defaultFile():
