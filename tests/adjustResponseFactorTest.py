@@ -3,12 +3,12 @@ import pathlib
 import sys
 
 # importing parseCsvShimadzu  
-sys.path.append('../')
+sys.path.append('./')
 from fitResponseFactor import fitResponseFactor
 from fitResponseFactor import plotFit
 
 # test data
-file_path='data/calibration/akerr/K2010MaioMedidosAkerr.csv'
+file_path='tests/data/calibration/akerr/K2010MaioMedidosAkerr.csv'
 file_content = pathlib.Path(file_path).read_text()
 
 class adjustResponseFactorTest(unittest.TestCase):
