@@ -3,7 +3,7 @@ import pathlib
 import sys
 
 # importing parseCsvShimadzu  
-sys.path.append('../')
+sys.path.append('../src/')
 from Shimadzu import parseCsv
 
 # test data

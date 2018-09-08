@@ -3,7 +3,7 @@ import pathlib
 import sys
 import math
 
-sys.path.append('../')
+sys.path.append('../src/')
 from BlankCorrection import BlankCorrection
 from Shimadzu import parseCsv
 from WinQxas import parseTxt

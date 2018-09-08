@@ -3,7 +3,7 @@ import pathlib
 import sys
 import math
 
-sys.path.append('../')
+sys.path.append('../src/')
 from ElementarDensity import ElementarDensity
 from Shimadzu import parseCsv
 from WinQxas import parseTxt
