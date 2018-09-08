@@ -9,4 +9,4 @@ install:
   - pip install .
 
 script:
-  - cd testes && python adjustResponseFactorTest.py
+  - cd tests && python adjustResponseFactorTest.py
