@@ -70,7 +70,7 @@ def fitResponseFactor(experimental_data, degree = 9):
     s = io.BytesIO()
     response_factor_numpy = numpy.vstack((Zadjusted.astype(int),Yadjusted,YadjustedError)).T
     numpy.savetxt(s,response_factor_numpy,delimiter=",")
-    numpy.savetxt('/tmp/teste.csv',response_factor_numpy,delimiter=",")
+#    numpy.savetxt('/tmp/teste.csv',response_factor_numpy,delimiter=",")
 
     # response_factor ???
     #response_factor = s.getvalue()
@@ -123,6 +123,6 @@ def plotFit(experimental_data,start=11.0,end=42.0,degree=9):
     figure.set_size_inches(8, 6)
 
     #Salvando
-    plt.savefig("/home/thiago/teste.png", dpi = 100)
+#    plt.savefig("/home/thiago/teste.png", dpi = 100)
 
 
