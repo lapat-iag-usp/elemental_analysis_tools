@@ -3,11 +3,11 @@ import pathlib
 import sys
 
 # importing parseCsvShimadzu  
-sys.path.append('../src/')
+sys.path.append('./lib/')
 from Shimadzu import parseCsv
 
 # test data
-file_path='data/ghana/EDX720/AFR390.20110406223141.csv'
+file_path='./data/ghana/EDX720/AFR390.20110406223141.csv'
 file_content = pathlib.Path(file_path).read_text()
 
 class ShimadzuTest(unittest.TestCase):

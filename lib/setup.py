@@ -7,6 +7,6 @@ setup(
     author="Thiago Gomes Veríssimo",
     author_email="verissimotgv@gmail.com",
     description="EAS - elemental-analysis-scripts",
-    packages = find_packages(),    
+    packages = find_packages(),
     install_requires=['pyxray>=1.3','numpy>=1.14.1'],
 )

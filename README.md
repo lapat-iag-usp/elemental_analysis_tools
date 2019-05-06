@@ -9,13 +9,17 @@
 
 Libraries instalation:
 
-    virtualenv -p python3 vendor
-    . vendor/bin/activate
-    vendor/bin/pip3 install -r requirements.txt
+    virtualenv -p python3 .virtualenv 
+    . .virtualenv/bin/activate
+    .virtualenv/bin/pip3 install -r requirements.txt
 
 If necessary, recreate the requirements.txt:
 
     vendor/bin/pip3 freeze > requirements.txt
+
+Run tests from root directory:
+
+     python3 tests/test_Shimadzu.py
 
 Available classes:
 
