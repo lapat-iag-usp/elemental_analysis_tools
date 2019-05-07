@@ -4,7 +4,7 @@ import sys
 
 # importing parseCsvShimadzu  
 sys.path.append('./lib/')
-from Shimadzu import parseCsv
+from shimadzu import parseCsv
 
 # test data
 file_path='./data/ghana/EDX720/AFR390.20110406223141.csv'
