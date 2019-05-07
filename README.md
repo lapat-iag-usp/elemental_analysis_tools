@@ -8,9 +8,7 @@
 
 Documentation:
 
-  - [https://eas.readthedocs.io/en/latest/genindex.html
-](https://eas.readthedocs.io/en/latest/genindex.html
-)
+  - [https://eas.readthedocs.io/](https://eas.readthedocs.io/)
 
 ## Basic dev setup:
 
