@@ -8,6 +8,7 @@ eas
    modules/shimadzu
    modules/micromatter
    modules/winqxas
+   modules/elementarDensity
 
 
 Indices and tables
