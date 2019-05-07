@@ -1,6 +1,4 @@
-Teste
-=====
 
-.. automodule:: modules/micromatter
+.. automodule:: micromatter
     :members:
 

@@ -1,13 +1,20 @@
 """
-Module Shimadzu
-===============
+shimadzu
+========
+
 This module handle files from shimadxu edx
+
 """
 
 import re
 
 def parseCsv(file_content):
-    """parse a csv from shimadzu
+    """ 
+    parseCsv
+    ========
+
+    parser a string file from Shimadzu analysis, returning a 
+    dictonary with current, livetime and sample ID
 
     Parameters
     ----------

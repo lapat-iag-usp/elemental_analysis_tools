@@ -1,4 +1,4 @@
 bla bla
 
-.. automodule:: shimadzu.parseCsv
+.. automodule:: shimadzu
     :members:

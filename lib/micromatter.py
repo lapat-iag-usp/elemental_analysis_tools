@@ -1,9 +1,20 @@
+"""
+micromatter
+===========
+
+Micromatter: parse a csv file from a micromatter catalog with columns: serial,description,density,element1,mass1,element2,mass2
+
+"""
+
 import csv 
 import os
-import pathlib
+#import pathlib
 import sys
 
 def get(serial , file_content = None):
+    """
+    dddcd
+    """
 
     if file_content is None:
         file_content = defaultFile()
@@ -25,6 +36,9 @@ def get(serial , file_content = None):
     return(r)
 
 def getSerials(file_content = None):
+    """
+    ddasdasd
+    """
 
     if file_content is None:
         file_content = defaultFile()
@@ -42,6 +56,9 @@ def getSerials(file_content = None):
     return r
 
 def serialsAsTuples(file_content = None):
+    """
+    dwd    ddd
+    """
     if file_content is None:
         file_content = defaultFile()
 
@@ -51,6 +68,9 @@ def serialsAsTuples(file_content = None):
     return r
 
 def defaultFile():
+    """
+    wedew
+    """
     file_path = os.path.join(os.path.dirname(__file__), 'tests/data/calibration/micromatter.csv')
     return(pathlib.Path(file_path).read_text())
 

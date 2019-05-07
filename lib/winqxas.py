@@ -1,3 +1,6 @@
+"""
+WinQxas: parser a string file from WinQxas analysis, returning a dictonary dic['K']['peaks'] and dic['K']['erros'] for K and L lines.
+"""
 import re
 import math
 import pyxray
