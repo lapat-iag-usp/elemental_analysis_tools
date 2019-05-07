@@ -22,7 +22,7 @@ Libraries instalation:
 
 If necessary, recreate the requirements.txt:
 
-    vendor/bin/pip3 freeze > requirements.txt
+    .virtualenv/bin/pip3 freeze > requirements.txt
 
 Example of how to run tests, given you are at root directory:
 
