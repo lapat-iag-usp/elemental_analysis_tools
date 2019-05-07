@@ -5,7 +5,8 @@ eas
    :maxdepth: 2
    :caption: Contents:
 
-   shimadzu
+   modules/shimadzu
+   modules/micromatter
 
 
 Indices and tables
