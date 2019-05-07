@@ -6,6 +6,9 @@ import math
 import pyxray
 
 def checkLine(Z,energy):
+    """
+    TODO: doc
+    """
     Ka1=False
     try:
         Ka1 = pyxray.xray_transition_energy_eV(Z, 'Ka1')/1000

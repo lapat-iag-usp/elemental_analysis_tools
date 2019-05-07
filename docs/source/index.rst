@@ -7,6 +7,7 @@ eas
 
    modules/shimadzu
    modules/micromatter
+   modules/winqxas
 
 
 Indices and tables
