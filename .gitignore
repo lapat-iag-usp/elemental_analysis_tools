@@ -2,6 +2,6 @@
 *~
 __pycache__
 *.pyc
-.virtualenv
+.eas
 
 docs/build

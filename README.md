@@ -14,13 +14,13 @@ Documentation:
 
 Libraries instalation:
 
-    virtualenv -p python3 .virtualenv 
-    . .virtualenv/bin/activate
-    .virtualenv/bin/pip3 install -r requirements.txt
+    virtualenv -p python3 .eas 
+    . .eas/bin/activate
+    pip3 install -r requirements.txt
 
 If necessary, recreate the requirements.txt:
 
-    .virtualenv/bin/pip3 freeze > requirements.txt
+    pip3 freeze > requirements.txt
 
 Example of how to run tests, given you are at root directory:
 
