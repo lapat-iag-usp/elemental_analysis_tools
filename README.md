@@ -26,5 +26,7 @@ Example of how to run tests, given you are at root directory:
 
      python3 tests/test_shimadzu.py
 
+Usecase examples collection are available at *examples* folder.  
+
 
 
