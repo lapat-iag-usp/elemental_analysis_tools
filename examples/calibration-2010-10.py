@@ -12,7 +12,7 @@ from winqxas import parseTxt
 file_content = pathlib.Path('data/calibration/2010-10/txt/34662.txt').read_text()
 txt = parseTxt(file_content)
 N = txt['K']['peaks'][11]
-print(txt['K']['errors'][11])
+#print(txt['K']['errors'][11])
 
 # ler corrente e tempo dos arquivos csv
 import shimadzu
@@ -28,9 +28,4 @@ from responseFactor import responseFactor
 R = responseFactor(N,d,I,tempo)
 print(R)
 
-
 # Ajustar polinômio
-
-
-
-
