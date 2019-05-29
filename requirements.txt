@@ -12,6 +12,7 @@ MarkupSafe==1.1.1
 matplotlib==2.2.2
 numpy==1.14.5
 packaging==19.0
+pandas==0.24.2
 pathlib==1.0.1
 Pygments==2.3.1
 pyparsing==2.4.0

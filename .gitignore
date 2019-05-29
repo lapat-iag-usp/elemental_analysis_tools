@@ -3,5 +3,6 @@
 __pycache__
 *.pyc
 .eas
+*.ipynb_checkpoints*
 
 docs/build
