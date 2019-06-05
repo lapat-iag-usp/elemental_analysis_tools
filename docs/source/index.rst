@@ -9,6 +9,7 @@ eas
    modules/micromatter
    modules/winqxas
    modules/elementarDensity
+   modules/responseFactor
 
 
 Indices and tables
