@@ -3,10 +3,10 @@ import pathlib
 import sys
 import math
 
-sys.path.append('../src/')
-from ElementarDensity import ElementarDensity
-from Shimadzu import parseCsv
-from WinQxas import parseTxt
+sys.path.append('./lib/')
+from elementarDensity import elementarDensity
+from shimadzu import parseCsv
+from winqxas import parseTxt
 
 # test data
 csv=pathlib.Path('data/ghana/EDX720/AFR390.20110406223141.csv').read_text()
@@ -26,7 +26,7 @@ N=float(peaks1[11])
 class calculateResponseFactorTest(unittest.TestCase):
 
     def test_11(self):
-        testcase = ElementarDensity(N,0.00034021562,i,t)
+        testcase = elementarDensity(N,0.00034021562,i,t)
         calculated = N/(0.00034021562*i*t)
         self.assertAlmostEqual(testcase,calculated)
 

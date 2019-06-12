@@ -3,19 +3,19 @@ import pathlib
 import sys
 
 # importing parseCsvShimadzu  
-sys.path.append('../src/')
-import Micromatter
+sys.path.append('./lib/')
+import micromatter
 
 # test data
-file_path='data/calibration/micromatter.csv'
+file_path='data/calibration/micromatter-table-iag.csv'
 file_content = pathlib.Path(file_path).read_text()
 
 class MicromatterTest(unittest.TestCase):
 
     def test_34662(self):
-        Na = Micromatter.get(34662,file_content)[11]
-        Cl = Micromatter.get(34662,file_content)[17]
-        total = Micromatter.get(34662,file_content)['total']
+        Na = micromatter.get(34662,file_content)[11]
+        Cl = micromatter.get(34662,file_content)[17]
+        total = micromatter.get(34662,file_content)['total']
 
         self.assertEqual(Na,19.5899428492)
         self.assertEqual(Cl,30.2100571508)
