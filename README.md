@@ -30,9 +30,11 @@ Usecase examples collection are available at *examples* folder.
 
 Tips:
 
-Rename all files from shimadzu:
+Rename a file from ki_34668_16p.20180402143731.csv to 34668.csv:
 
     rename 's/.2018*\d+//' *
+    rename 's/^(.*?)\_//' *
+    rename 's/_16p//' *
 
 
 
