@@ -1,7 +1,6 @@
-# ler informações micromatteri, que contém a densidade
 import math
 import pandas as pd
-densidades = pd.read_csv('C:/Users/pc2/Documents/eas-master/eas-master/data/calibration/micromatter-table-iag.csv')
+densidades = pd.read_csv('data/calibration/micromatter-table-iag.csv')
 df = pd.DataFrame(densidades)
 pto_txt = '.txt'
 pto_csv = '.csv'
@@ -20,7 +19,7 @@ for i in range(0,28): #trocar para len(df['serial']) depois
     from winqxas import parseTxt
     #transformar nome do documento em str
     serial = str(df['serial'][i])
-    doc_txt = 'C:/Users/pc2/Documents/eas-master/eas-master/data/calibration/2010-10/txt/'
+    doc_txt = 'data/calibration/2010-10/txt/'
     for j in range(len(serial)):
         doc_txt += serial[j]
     for j in range(len(pto_txt)):
@@ -28,11 +27,12 @@ for i in range(0,28): #trocar para len(df['serial']) depois
     file_content = pathlib.Path(doc_txt).read_text()
     txt = parseTxt(file_content)
     N = txt['K']['peaks'][df['element1'][i]]
+    sigma_N = txt['K']['errors'][df['element1'][i]]
     #print(txt['K']['errors'][11])
     
     # ler corrente e tempo dos arquivos csv
     import shimadzu as sd
-    doc_csv = 'C:/Users/pc2/Documents/eas-master/eas-master/data/calibration/2010-10/csv/'
+    doc_csv = 'data/calibration/2010-10/csv/'
     for j in range(len(serial)):
         doc_csv += serial[j]
     for j in range(len(pto_csv)):
@@ -46,8 +46,9 @@ for i in range(0,28): #trocar para len(df['serial']) depois
 
     # caculcar fator de resposta ponto a ponto
     from responseFactor import responseFactor
-    R = responseFactor(N,d,I,tempo)
-    linha_fatores = [df['element1'][i], R]
+    R,sigma_R = responseFactor(N,d,I,tempo,sigma_N)
+
+    linha_fatores = [df['element1'][i], R,sigma_R]
     fatores.append(linha_fatores)
     
 '''
