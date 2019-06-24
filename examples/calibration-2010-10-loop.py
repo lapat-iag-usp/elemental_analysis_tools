@@ -8,7 +8,7 @@ pto_csv = '.csv'
 fatores=[]
 
 #loop ler todos os elementos
-for i in range(0,28): #trocar para len(df['serial']) depois
+for i in range((len(df['serial'])):
 
  
     d = df['density1'][i]
