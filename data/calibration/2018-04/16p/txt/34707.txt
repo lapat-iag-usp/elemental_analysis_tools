@@ -1,0 +1,7 @@
+Acquisition date and time: 00-00-   0 (00:00:00)
+Live Time:,        0
+Real Time:,        0
+ 
+Photopeaks:,     2
+  20,      3.691,      19055,        139,       3.94
+  66,      6.491,     337526,        578,      11.96
