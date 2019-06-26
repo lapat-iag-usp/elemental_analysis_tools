@@ -7,7 +7,7 @@ pto_csv = '.csv'
 fatores=[]
 
 #loop ler todos os elementos
-for i in range((len(df['serial'])):
+for i in range((len(df['serial']))):
 
  
     d = df['density1'][i]
@@ -19,6 +19,7 @@ for i in range((len(df['serial'])):
     from winqxas import parseTxt
     #transformar nome do documento em str
     serial = str(df['serial'][i])
+    print(serial)
     doc_txt = 'data/calibration/2010-10/txt/'
     for j in range(len(serial)):
         doc_txt += serial[j]
@@ -26,8 +27,11 @@ for i in range((len(df['serial'])):
         doc_txt += pto_txt[j]
     file_content = pathlib.Path(doc_txt).read_text()
     txt = parseTxt(file_content)
-    N = txt['K']['peaks'][df['element1'][i]]
-    sigma_N = txt['K']['errors'][df['element1'][i]]
+    try:
+        N = txt['K']['peaks'][df['element1'][i]]
+        sigma_N = txt['K']['errors'][df['element1'][i]]
+    except:
+        pass
     #print(txt['K']['errors'][11])
     
     # ler corrente e tempo dos arquivos csv
