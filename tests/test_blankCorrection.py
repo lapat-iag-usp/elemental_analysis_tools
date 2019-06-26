@@ -3,10 +3,10 @@ import pathlib
 import sys
 import math
 
-sys.path.append('../src/')
-from BlankCorrection import BlankCorrection
-from Shimadzu import parseCsv
-from WinQxas import parseTxt
+sys.path.append('./lib/')
+from blankCorrection import blankCorrection
+from shimadzu import parseCsv
+from winqxas import parseTxt
 
 # test data
 file1_txt='data/ghana/blank/winqxas/[1]GPE 771 MS20100713123803.txt'
@@ -47,38 +47,38 @@ for key in keys:
     peaks[key] = txt_content['K']['peaks'] 
     errors[key] = txt_content['K']['errors']
 
-class BlankCorrectionTest(unittest.TestCase):
+class blankCorrectionTest(unittest.TestCase):
 
     def test_13(self):
         # teste peak
-        testcase = BlankCorrection(irradiation_parameters,peaks, errors)['peaks_correction'][13]
+        testcase = blankCorrection(irradiation_parameters,peaks, errors)['peaks_correction'][13]
         calculed = (0/it1 + 226/it2 + 212/it3)/3
         self.assertAlmostEqual(testcase,calculed)
 
         # test error
-        testcase = BlankCorrection(irradiation_parameters,peaks, errors)['errors_correction'][13]
+        testcase = blankCorrection(irradiation_parameters,peaks, errors)['errors_correction'][13]
         calculed = (0/it1 + 68/it2 + 66/it3)/3
         self.assertAlmostEqual(testcase,calculed)
 
     def test_26(self):
         # test peak
-        testcase = BlankCorrection(irradiation_parameters,peaks, errors)['peaks_correction'][26]
+        testcase = blankCorrection(irradiation_parameters,peaks, errors)['peaks_correction'][26]
         calculed = (2195/it1  + 2610/it2 + 2124/it3)/3
         self.assertAlmostEqual(testcase,calculed)
 
         # test error
-        testcase = BlankCorrection(irradiation_parameters,peaks, errors)['errors_correction'][26]
+        testcase = blankCorrection(irradiation_parameters,peaks, errors)['errors_correction'][26]
         calculed = (230/it1 + 245/it2 + 234/it3)/3
         self.assertAlmostEqual(testcase,calculed)
       
     def test_29(self):
         # test peak
-        testcase = BlankCorrection(irradiation_parameters,peaks, errors)['peaks_correction'][29]
+        testcase = blankCorrection(irradiation_parameters,peaks, errors)['peaks_correction'][29]
         calculed = (7278/it1 + 7773/it2 + 7556/it3)/3
         self.assertAlmostEqual(testcase,calculed)
 
         # test error
-        testcase = BlankCorrection(irradiation_parameters,peaks, errors)['errors_correction'][29]
+        testcase = blankCorrection(irradiation_parameters,peaks, errors)['errors_correction'][29]
         calculed = (423/it1 + 449/it2 + 430/it3)/3
         self.assertAlmostEqual(testcase,calculed)
 

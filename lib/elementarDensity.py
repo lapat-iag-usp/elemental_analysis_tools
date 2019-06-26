@@ -10,14 +10,14 @@ calculateElementarDensity: N/(R*current*livetime)
 
 """
 
-def ElementarDensity(N,R,current,livetime):
+def elementarDensity(N,R,current,livetime):
     """
     wdw
     """
 
     return(N/(R*current*livetime))
 
-def ElementarDensityError(N,R,current,livetime):
+def elementarDensityError(N,R,current,livetime):
     """
     wssdw
     """

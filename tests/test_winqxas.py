@@ -2,20 +2,19 @@ import unittest
 import pathlib
 import sys
 import math
-
-# importing parseCsvShimadzu  
-sys.path.append('../src/')
-from WinQxas import parseTxt
+  
+sys.path.append('lib/')
+from winqxas import parseTxt
 
 # test data
 file_path='data/ghana/winqxas/txt1/[1]AFR39020110406223141.txt'
 file_content = pathlib.Path(file_path).read_text()
 
 # test element with line K and L in the same spectra
-file2_path='data/calibration/txt/34691.txt'
+file2_path='data/calibration/2010-10/txt/34691.txt'
 file2_content = pathlib.Path(file2_path).read_text()
 
-class WinQxasTest(unittest.TestCase):
+class winqxasTest(unittest.TestCase):
     def test_11(self):
         self.assertEqual(parseTxt(file_content)['K']['peaks'][11],389)
         self.assertEqual(parseTxt(file_content)['K']['errors'][11],71)

@@ -3,7 +3,7 @@ import math
 import pathlib
 import sys
 
-def BlankCorrection(irradiation_parameters, peaks, errors):
+def blankCorrection(irradiation_parameters, peaks, errors):
     """
     Receive a collection of blanks samples data (irradiation and fitting data) 
     and return the correction for each element Z. The key in irradiation_parameters, 
