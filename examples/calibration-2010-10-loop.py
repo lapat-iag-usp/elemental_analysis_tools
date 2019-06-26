@@ -55,18 +55,19 @@ for i in range((len(df['serial']))):
     linha_fatores = [df['element1'][i], R,sigma_R]
     fatores.append(linha_fatores)
     
-'''
-    #calcular fator de resposta para element2 (se houver): verificar arquivos txt
+
+    #calcular fator de resposta para element2 
     d = df['density2'][i]
-    if not math.isnan(d):
-        if df['element2'][i] < ?: 
-            N = txt['K']['peaks'][df['element2'][i]]
-        else:
-            N = txt['L']['peaks'][df['element2'][i]]
-        R = responseFactor(N,d,I,tempo)
-        linha_fatores = [df['element2'][i], R]
-        fatores.append(linha_fatores)
-'''
+    try:
+        N = txt['K']['peaks'][df['element1'][i]]
+        sigma_N = txt['K']['errors'][df['element1'][i]]
+    except:
+        pass
+    R,sigma_R = responseFactor(N,d,I,tempo,sigma_N)
+
+    linha_fatores = [df['element1'][i], R,sigma_R]
+    fatores.append(linha_fatores)
+
 print(fatores)
    
 # Ajustar polinômio
