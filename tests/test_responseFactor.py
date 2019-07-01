@@ -3,7 +3,7 @@ import pathlib
 import sys
 import math
 
-sys.path.append('./lib/')
+sys.path.append('./eas')
 from responseFactor import responseFactor
 from shimadzu import parseCsv
 from winqxas import parseTxt

@@ -3,7 +3,7 @@ import pathlib
 import sys
 import math
   
-sys.path.append('lib/')
+sys.path.append('eas')
 from winqxas import parseTxt
 
 # test data

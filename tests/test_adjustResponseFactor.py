@@ -3,7 +3,7 @@ import pathlib
 import sys
 
 # importing parseCsvShimadzu  
-sys.path.append('./lib')
+sys.path.append('./eas')
 from fitResponseFactor import fitResponseFactor
 from fitResponseFactor import plotFit
 
