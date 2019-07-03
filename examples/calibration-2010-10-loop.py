@@ -71,7 +71,7 @@ for i in range((len(df['serial']))):
 df = pd.DataFrame(fatores)
 df = df.dropna()
 
-fatores_finais = pd.DataFrame()
+fatores_finais = pd.DataFrame(columns=['Z','R','Error'])
 # Médias e Incertezas
 elementos = pd.unique(df[0])
 for elemento in elementos:
@@ -84,8 +84,14 @@ for elemento in elementos:
     erro = total**(1/2) 
     fatores_finais = fatores_finais.append({'Z':elemento, 'R':media, 'Error': erro} , ignore_index=True)
 
-print(fatores_finais)
-   
+fatores_finais.to_csv('~/output.csv', sep = ',',index = False)
+
 # Ajustar polinômio
+from fitResponseFactor import fitResponseFactor
+from fitResponseFactor import plotFit
+
+experimental_data = pathlib.Path('/home/thiago/output.csv').read_text()
+
+plotFit(experimental_data,start=11.0,end=42.0,degree=9)
 
 
