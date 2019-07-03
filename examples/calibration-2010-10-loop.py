@@ -15,11 +15,10 @@ for i in range((len(df['serial']))):
     # ler contagens do arquivos txt
     import sys
     import pathlib
-    sys.path.append('lib')
+    sys.path.append('eas')
     from winqxas import parseTxt
     #transformar nome do documento em str
     serial = str(df['serial'][i])
-    print(serial)
     doc_txt = 'data/calibration/2010-10/txt/'
     for j in range(len(serial)):
         doc_txt += serial[j]
@@ -68,23 +67,24 @@ for i in range((len(df['serial']))):
     linha_fatores = [df['element1'][i], R,sigma_R]
     fatores.append(linha_fatores)
 
-print(fatores)
-repeticao = [fatores[0][0]]
-i = 1
-while i < len(fatores):
-    if fatores[i][0] in repeticao:
-        for j, word in enumerate(repeticao):
-            if word == fatores[i][0]:
-                indice = j
-        media_R = (fatores[i][1]+fatores[indice][1])/2
-        sigma_R = (fatores[i][2]**2 + fatores[indice][2]**2)**(1/2)
-        fatores[indice][1] = media_R
-        fatores[indice][2] = sigma_R
-        del(fatores[i])
-    else:
-        repeticao.append(fatores[i][0])
-        i += 1
-print (fatores)  
+# Transformando fatores em dataframe, NaN removidos    
+df = pd.DataFrame(fatores)
+df = df.dropna()
+
+fatores_finais = pd.DataFrame()
+# Médias e Incertezas
+elementos = pd.unique(df[0])
+for elemento in elementos:
+    aux = df[df[0]==elemento]
+    media = aux[1].mean(axis = 0) 
+
+    total = 0
+    for error in aux[2]:
+        total += error**2
+    erro = total**(1/2) 
+    fatores_finais = fatores_finais.append({'Z':elemento, 'R':media, 'Error': erro} , ignore_index=True)
+
+print(fatores_finais)
    
 # Ajustar polinômio
 
