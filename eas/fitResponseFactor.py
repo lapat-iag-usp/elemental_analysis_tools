@@ -30,7 +30,7 @@ def experimentalData(file_content):
 
     return( {'Z': Z , 'Y': Y , 'Yerror': Yerror} )
 
-def fitResponseFactor(experimental_data, degree = 9):
+def fitResponseFactor(experimental_data, start=11,end=42, degree = 9):
 
     data = experimentalData(experimental_data)
     Z = data['Z']
@@ -54,7 +54,7 @@ def fitResponseFactor(experimental_data, degree = 9):
     coefficients_errors = numpy.sqrt(numpy.diagonal(VA))
 
     # atomic numbers
-    Zadjusted = numpy.array(range(11,43)) 
+    Zadjusted = numpy.array(range(start,end)) 
 
     # Response Factor adjusted
     Xadjusted = numpy.vstack([Zadjusted**j for j in range(degree)]).T
@@ -77,14 +77,15 @@ def fitResponseFactor(experimental_data, degree = 9):
     
     return({'coefficients': A, 'coefficients_errors': coefficients_errors})
 
-def plotFit(experimental_data,start=11.0,end=42.0,degree=9):
+def plotFit(experimental_data,start=11,end=42,degree=9):
 
     data = experimentalData(experimental_data)
     Z = data['Z']
     Y = data['Y']
     Yerror = data['Yerror']
 
-    coefficients = fitResponseFactor(experimental_data)['coefficients']
+    coefficients = fitResponseFactor(experimental_data,start,end,degree)['coefficients']
+
     #Calculo do fator de resposta em um espaço com mais pontos, para plotar gráfico
     Zplot = numpy.linspace(start,end,600) 
     Xplot = numpy.vstack([Zplot**j for j in range(degree)]).T

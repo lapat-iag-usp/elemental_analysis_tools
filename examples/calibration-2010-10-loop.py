@@ -92,6 +92,7 @@ from fitResponseFactor import plotFit
 
 experimental_data = pathlib.Path('/home/thiago/output.csv').read_text()
 
-plotFit(experimental_data,start=11.0,end=42.0,degree=9)
+#fitResponseFactor(experimental_data,start=11,end=50,degree=6)
+plotFit(experimental_data,start=11,end=50,degree=10)
 
 
