@@ -69,6 +69,22 @@ for i in range((len(df['serial']))):
     fatores.append(linha_fatores)
 
 print(fatores)
+repeticao = [fatores[0][0]]
+i = 1
+while i < len(fatores):
+    if fatores[i][0] in repeticao:
+        for j, word in enumerate(repeticao):
+            if word == fatores[i][0]:
+                indice = j
+        media_R = (fatores[i][1]+fatores[indice][1])/2
+        sigma_R = (fatores[i][2]**2 + fatores[indice][2]**2)**(1/2)
+        fatores[indice][1] = media_R
+        fatores[indice][2] = sigma_R
+        del(fatores[i])
+    else:
+        repeticao.append(fatores[i][0])
+        i += 1
+print (fatores)  
    
 # Ajustar polinômio
 
