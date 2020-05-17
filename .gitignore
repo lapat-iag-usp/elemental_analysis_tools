@@ -6,6 +6,7 @@ include
 __pycache__
 *.pyc
 .eas
+.elemental-analysis-scripts
 *.ipynb_checkpoints*
 
 docs/build
