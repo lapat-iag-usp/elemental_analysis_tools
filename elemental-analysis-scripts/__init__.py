@@ -1,1 +1,1 @@
-name="eas"
+name="elemental-analysis-scripts"
