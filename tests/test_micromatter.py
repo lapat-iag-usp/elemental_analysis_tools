@@ -3,7 +3,7 @@ import pathlib
 import sys
 
 # importing parseCsvShimadzu  
-sys.path.append('./eas')
+sys.path.append('./elemental-analysis-scripts')
 import micromatter
 
 # test data

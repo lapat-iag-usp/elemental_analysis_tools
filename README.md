@@ -1,21 +1,21 @@
-[![Build Status](https://travis-ci.org/thiagogomesverissimo/eas.svg?branch=master)](https://travis-ci.org/thiagogomesverissimo/eas)
+[![Build Status](https://travis-ci.org/thiagogomesverissimo/elemental-analysis-scripts.svg?branch=master)](https://travis-ci.org/thiagogomesverissimo/elemental-analysis-scripts)
 
-![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/thiagogomesverissimo/eas.svg) 
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/thiagogomesverissimo/eas.svg)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/thiagogomesverissimo/elemental-analysis-scripts.svg) 
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/thiagogomesverissimo/elemental-analysis-scripts.svg)
 
-![GitHub issues](https://img.shields.io/github/issues/thiagogomesverissimo/eas.svg) 
-![GitHub closed issues](https://img.shields.io/github/issues-closed/thiagogomesverissimo/eas.svg)
+![GitHub issues](https://img.shields.io/github/issues/thiagogomesverissimo/elemental-analysis-scripts.svg) 
+![GitHub closed issues](https://img.shields.io/github/issues-closed/thiagogomesverissimo/elemental-analysis-scripts.svg)
 
 Documentation:
 
-  - [https://eas.readthedocs.io/](https://eas.readthedocs.io/)
+  - [https://elemental-analysis-scripts.readthedocs.io/](https://elemental-analysis-scripts.readthedocs.io/)
 
 ## Basic dev setup:
 
 Libraries instalation:
 
-    virtualenv -p python3 .eas 
-    . .eas/bin/activate
+    virtualenv -p python3 .elemental-analysis-scripts 
+    . .elemental-analysis-scripts/bin/activate
     pip3 install -r requirements.txt
 
 If necessary, recreate the requirements.txt:

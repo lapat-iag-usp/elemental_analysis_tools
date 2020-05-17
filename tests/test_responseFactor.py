@@ -3,7 +3,7 @@ import pathlib
 import sys
 import math
 
-sys.path.append('./eas')
+sys.path.append('./elemental-analysis-scripts')
 from responseFactor import responseFactor
 from shimadzu import parseCsv
 from winqxas import parseTxt
