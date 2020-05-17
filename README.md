@@ -36,5 +36,7 @@ Rename a file from ki_34668_16p.20180402143731.csv to 34668.csv:
     rename 's/^(.*?)\_//' *
     rename 's/_16p//' *
 
+Publishng a new version of the package:
 
-
+    python3 setup.py sdist bdist_wheel
+    twine upload dist/*
