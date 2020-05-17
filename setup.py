@@ -1,12 +1,15 @@
-from setuptools import setup, find_packages
+import setuptools
 
-setup(
-    name="eas",
-    version="0.1",
-    url = 'https://github.com/elemental-analysis-group/eas.git',
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="elemental-analysis-scripts",
+    version="1.0.0",
+    url = 'https://github.com/elemental-analysis-group/elemental-analysis-scripts.git',
     author="Thiago Gomes Veríssimo",
     author_email="verissimotgv@gmail.com",
-    description="EAS - elemental-analysis-scripts",
-    packages = find_packages(),
+    description="elemental-analysis-scripts",
+    packages=setuptools.find_packages(),
     install_requires=['pyxray>=1.3','numpy>=1.14.1'],
 )
