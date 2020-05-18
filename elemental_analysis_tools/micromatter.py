@@ -8,7 +8,7 @@ Micromatter: parse a csv file from a micromatter catalog with columns: serial,de
 
 import csv 
 import os
-#import pathlib
+import pathlib
 import sys
 
 def get(serial , file_content = None):
@@ -71,6 +71,6 @@ def defaultFile():
     """
     wedew
     """
-    file_path = os.path.join(os.path.dirname(__file__), 'tests/data/calibration/micromatter.csv')
+    file_path = os.path.join(os.path.dirname(__file__), 'data/calibration/micromatter.csv')
     return(pathlib.Path(file_path).read_text())
 
