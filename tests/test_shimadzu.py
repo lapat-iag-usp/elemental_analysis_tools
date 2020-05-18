@@ -3,7 +3,7 @@ import pathlib
 import sys
 
 # importing parseCsvShimadzu  
-sys.path.append('./elemental-analysis-scripts')
+sys.path.append('./elemental_analysis_scripts')
 from shimadzu import parseCsv
 
 # test data

@@ -5,9 +5,9 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="elemental_analysis_scripts",
-    version="0.0.2",
-    url = 'https://github.com/elemental-analysis-group/elemental-analysis-scripts.git',
-    description="elemental-analysis-scripts package",
+    version="0.0.1",
+    url = 'https://github.com/elemental-analysis-group/elemental_analysis_scripts.git',
+    description="elemental_analysis_scripts package",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Thiago Gomes Veríssimo",
