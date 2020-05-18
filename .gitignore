@@ -1,12 +1,9 @@
-bin
-include
 
 *.swp
 *~
 __pycache__
 *.pyc
-.eas
-.elemental-analysis-scripts
+.virtualenv
 *.ipynb_checkpoints*
 
 docs/build
