@@ -14,8 +14,8 @@ Documentation:
 
 Libraries instalation:
 
-    virtualenv -p python3 .elemental-analysis-scripts 
-    . .elemental-analysis-scripts/bin/activate
+    virtualenv -p python3 .virtualenv
+    source virtualenv/bin/activate
     pip3 install -r requirements.txt
 
 If necessary, recreate the requirements.txt:
