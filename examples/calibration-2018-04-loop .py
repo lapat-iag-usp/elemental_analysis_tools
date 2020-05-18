@@ -16,7 +16,7 @@ for i in range((len(df['serial']))):
     # ler contagens do arquivos txt
     import sys
     import pathlib
-    sys.path.append('eas')
+    sys.path.append('elemental_analysis_tools')
     from winqxas import parseTxt
     #transformar nome do documento em str
     serial = str(df['serial'][i])

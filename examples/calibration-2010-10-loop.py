@@ -15,7 +15,7 @@ for i in range((len(df['serial']))):
     # ler contagens do arquivos txt
     import sys
     import pathlib
-    sys.path.append('eas')
+    sys.path.append('elemental_analysis_tools')
     from winqxas import parseTxt
     #transformar nome do documento em str
     serial = str(df['serial'][i])
@@ -90,9 +90,7 @@ fatores_finais.to_csv('~/output.csv', sep = ',',index = False)
 from fitResponseFactor import fitResponseFactor
 from fitResponseFactor import plotFit
 
-experimental_data = pathlib.Path('/home/thiago/output.csv').read_text()
+experimental_data = pathlib.Path('~/output.csv').read_text()
 
 #fitResponseFactor(experimental_data,start=11,end=50,degree=6)
 plotFit(experimental_data,start=11,end=50,degree=10)
-
-
