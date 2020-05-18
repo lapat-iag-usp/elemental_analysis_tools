@@ -1,1 +1,1 @@
-name="elemental-analysis-scripts"
+name="elemental_analysis_scripts"
