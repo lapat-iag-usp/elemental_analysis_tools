@@ -3,7 +3,7 @@ import pathlib
 import sys
 import math
   
-sys.path.append('elemental_analysis_scripts')
+sys.path.append('elemental_analysis_tools')
 from winqxas import parseTxt
 
 # test data

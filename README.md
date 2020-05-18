@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.org/thiagogomesverissimo/elemental_analysis_scripts.svg?branch=master)](https://travis-ci.org/thiagogomesverissimo/elemental_analysis_scripts)
+[![Build Status](https://travis-ci.org/thiagogomesverissimo/elemental_analysis_tools.svg?branch=master)](https://travis-ci.org/thiagogomesverissimo/elemental_analysis_tools)
 
-![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/thiagogomesverissimo/elemental_analysis_scripts.svg) 
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/thiagogomesverissimo/elemental_analysis_scripts.svg)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/thiagogomesverissimo/elemental_analysis_tools.svg) 
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/thiagogomesverissimo/elemental_analysis_tools.svg)
 
-![GitHub issues](https://img.shields.io/github/issues/thiagogomesverissimo/elemental_analysis_scripts.svg) 
-![GitHub closed issues](https://img.shields.io/github/issues-closed/thiagogomesverissimo/elemental_analysis_scripts.svg)
+![GitHub issues](https://img.shields.io/github/issues/thiagogomesverissimo/elemental_analysis_tools.svg) 
+![GitHub closed issues](https://img.shields.io/github/issues-closed/thiagogomesverissimo/elemental_analysis_tools.svg)
 
 Documentation:
 
-  - [https://elemental_analysis_scripts.readthedocs.io/](https://elemental_analysis_scripts.readthedocs.io/)
+  - [https://elemental_analysis_tools.readthedocs.io/](https://elemental_analysis_tools.readthedocs.io/)
 
 ## Basic dev setup:
 

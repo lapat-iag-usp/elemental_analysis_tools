@@ -3,7 +3,7 @@ import pathlib
 import sys
 
 # importing parseCsvShimadzu  
-sys.path.append('./elemental_analysis_scripts')
+sys.path.append('./elemental_analysis_tools')
 from fitResponseFactor import fitResponseFactor
 from fitResponseFactor import plotFit
 
