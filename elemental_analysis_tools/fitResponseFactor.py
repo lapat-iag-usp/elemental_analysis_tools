@@ -30,12 +30,7 @@ def experimentalData(file_content):
 
     return( {'Z': Z , 'Y': Y , 'Yerror': Yerror} )
 
-def fitResponseFactor(experimental_data, start=11,end=42, degree = 9):
-
-    data = experimentalData(experimental_data)
-    Z = data['Z']
-    Y = data['Y']
-    Yerror = data['Yerror']
+def fitResponseFactor(Z,Y,Yerror, start=11,end=42, degree = 9):
     
     # Matrix X, each colunm like [1 z z^2 z^3 ... z^n] ...
     X = numpy.vstack([Z**j for j in range(degree)]).T
@@ -77,21 +72,8 @@ def fitResponseFactor(experimental_data, start=11,end=42, degree = 9):
     
     return({'coefficients': A, 'coefficients_errors': coefficients_errors})
 
-def plotFit(experimental_data,start=11,end=42,degree=9):
+def plotFit(Z,Y,Yerror,start=11,end=42,degree=9,fit=False):
 
-    data = experimentalData(experimental_data)
-    Z = data['Z']
-    Y = data['Y']
-    Yerror = data['Yerror']
-
-    coefficients = fitResponseFactor(experimental_data,start,end,degree)['coefficients']
-
-    #Calculo do fator de resposta em um espaço com mais pontos, para plotar gráfico
-    Zplot = numpy.linspace(start,end,600) 
-    Xplot = numpy.vstack([Zplot**j for j in range(degree)]).T
-    Yplot = numpy.dot(Xplot,coefficients)
-
-    #Plotando gráfico do Ajuste + dados experimentais
     plt.figure(1)
 
     #Limpar workspace
@@ -116,14 +98,23 @@ def plotFit(experimental_data,start=11,end=42,degree=9):
     #colocar barras de erros nos pontos experimentais
     plt.errorbar(Z,Y,yerr=Yerror,ecolor='b',fmt='none')
 
-    #Plot da curva ajustada
-    plt.plot(Zplot,Yplot,'r-')
+    # Ajustando Curva
+    if fit:
+        coefficients = fitResponseFactor(Z,Y,Yerror,start,end,degree)['coefficients']
 
-    #Configurando tamanho
-    figure = plt.gcf() # get current figure
+        # Calculo do fator de resposta em um espaço com mais pontos, para plotar gráfico
+        Zplot = numpy.linspace(start,end,600) 
+        Xplot = numpy.vstack([Zplot**j for j in range(degree)]).T
+        Yplot = numpy.dot(Xplot,coefficients)
+    
+        # Plot da curva ajustada
+        plt.plot(Zplot,Yplot,'r-')
+
+    # Configurando tamanho ?
+    figure = plt.gcf()
     figure.set_size_inches(8, 6)
+    
+    return plt
 
-    #Salvando
-    plt.savefig("/home/thiago/teste.png", dpi = 100)
 
 

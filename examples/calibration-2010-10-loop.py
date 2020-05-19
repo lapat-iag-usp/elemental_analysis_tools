@@ -1,5 +1,6 @@
 import math
 import pandas as pd
+
 densidades = pd.read_csv('data/calibration/micromatter-table-iag.csv')
 df = pd.DataFrame(densidades)
 pto_txt = '.txt'
@@ -9,7 +10,6 @@ fatores=[]
 #loop ler todos os elementos
 for i in range((len(df['serial']))):
 
- 
     d = df['density1'][i]
 
     # ler contagens do arquivos txt
@@ -84,13 +84,24 @@ for elemento in elementos:
     erro = total**(1/2) 
     fatores_finais = fatores_finais.append({'Z':elemento, 'R':media, 'Error': erro} , ignore_index=True)
 
-fatores_finais.to_csv('~/output.csv', sep = ',',index = False)
+fatores_finais.to_csv('/home/thiago/output.csv', sep = ',',index = False)
+
+#print(fatores_finais)
 
 # Ajustar polinômio
 from fitResponseFactor import fitResponseFactor
 from fitResponseFactor import plotFit
+from fitResponseFactor import experimentalData
 
-experimental_data = pathlib.Path('~/output.csv').read_text()
+experimental_data = pathlib.Path('/home/thiago/output.csv').read_text()
+data = experimentalData(experimental_data)
+Z = data['Z']
+Y = data['Y']
+Yerror = data['Yerror']
 
-#fitResponseFactor(experimental_data,start=11,end=50,degree=6)
-plotFit(experimental_data,start=11,end=50,degree=10)
+plt = plotFit(Z,Y,Yerror,start=11,end=50,degree=10,fit=True)
+
+# Salvando
+plt.savefig("/home/thiago/teste.png", dpi = 100)
+
+
