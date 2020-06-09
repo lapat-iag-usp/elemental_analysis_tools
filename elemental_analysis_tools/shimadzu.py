@@ -27,6 +27,7 @@ def parseCsv(file_content):
         dic with irradiation parameters
 
     """
+    print('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT')
     irradiation_parameters = {}
     irradiation_parameters['sample'] = file_content.split(',')[0].split(':')[1].replace("\"", "").strip()
     irradiation_parameters['current'] = re.sub(' +',' ',file_content.split(',')[12]).split(' ')[3]
