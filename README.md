@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/thiagogomesverissimo/elemental_analysis_tools.svg?branch=master)](https://travis-ci.org/thiagogomesverissimo/elemental_analysis_tools)
+[![Build Status](https://travis-ci.org/elemental-analysis-group/elemental_analysis_tools.svg?branch=master)](https://travis-ci.org/elemental-analysis-group/elemental_analysis_tools)
 
-![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/thiagogomesverissimo/elemental_analysis_tools.svg) 
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/thiagogomesverissimo/elemental_analysis_tools.svg)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/elemental-analysis-group/elemental_analysis_tools.svg) 
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/elemental-analysis-group/elemental_analysis_tools.svg)
 
-![GitHub issues](https://img.shields.io/github/issues/thiagogomesverissimo/elemental_analysis_tools.svg) 
-![GitHub closed issues](https://img.shields.io/github/issues-closed/thiagogomesverissimo/elemental_analysis_tools.svg)
+![GitHub issues](https://img.shields.io/github/issues/elemental-analysis-group/elemental_analysis_tools.svg) 
+![GitHub closed issues](https://img.shields.io/github/issues-closed/elemental-analysis-group/elemental_analysis_tools.svg)
 
 Documentation:
 
