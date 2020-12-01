@@ -18,15 +18,9 @@ Libraries instalation:
     source virtualenv/bin/activate
     pip3 install -r requirements.txt
 
-Example of how to run tests, given you are at root directory:
+Example of how to run a particular test:
 
     python3 tests/test_elementarDensity.py
-    python3 tests/test_responseFactor.py
-    python3 tests/test_winqxas.py
-    python3 tests/test_blankCorrection.py
-    python3 tests/test_micromatter.py
-    python3 tests/test_shimadzu.py
-    python3 tests/test_fitResponseFactor.py
 
 Publishing a new version of the package in [pip](https://pypi.org/project/elemental-analysis-tools/):
 
