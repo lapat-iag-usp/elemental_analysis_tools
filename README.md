@@ -10,7 +10,7 @@ Documentation:
 
   - [https://elemental_analysis_tools.readthedocs.io/](https://elemental_analysis_tools.readthedocs.io/)
 
-## Basic dev setup:
+## Instruction for a basic development setup:
 
 Libraries instalation:
 
@@ -18,25 +18,17 @@ Libraries instalation:
     source virtualenv/bin/activate
     pip3 install -r requirements.txt
 
-If necessary, recreate the requirements.txt:
-
-    pip3 freeze > requirements.txt
-
 Example of how to run tests, given you are at root directory:
 
-     python3 tests/test_shimadzu.py
+    python3 tests/test_adjustResponseFactor.py
+    python3 tests/test_elementarDensity.py
+    python3 tests/test_responseFactor.py
+    python3 tests/test_winqxas.py
+    python3 tests/test_blankCorrection.py
+    python3 tests/test_micromatter.py
+    python3 tests/test_shimadzu.py
 
-Usecase examples collection are available at *examples* folder.
-
-Tips:
-
-Rename a file from ki_34668_16p.20180402143731.csv to 34668.csv:
-
-    rename 's/.2018*\d+//' *
-    rename 's/^(.*?)\_//' *
-    rename 's/_16p//' *
-
-Publishng a new version of the package:
+Publishing a new version of the package in [pip](https://pypi.org/project/elemental-analysis-tools/):
 
     python3 setup.py sdist bdist_wheel
     twine upload dist/*
