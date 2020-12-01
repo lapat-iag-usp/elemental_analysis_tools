@@ -27,8 +27,9 @@ Example of how to run tests, given you are at root directory:
     python3 tests/test_micromatter.py
     python3 tests/test_shimadzu.py
     python3 tests/test_fitResponseFactor.py
-    
+
 Publishing a new version of the package in [pip](https://pypi.org/project/elemental-analysis-tools/):
 
     python3 setup.py sdist bdist_wheel
+    pip3 install twine
     twine upload dist/*

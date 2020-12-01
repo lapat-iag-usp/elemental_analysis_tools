@@ -1,11 +1,17 @@
 language: python
 
 python:
-  - 3.5
   - 3.6
+  - 3.7
 
 install:
   - pip install -r requirements.txt
 
 script:
-  - cd tests && python -m unittest
+  - python tests/test_elementarDensity.py
+  - python tests/test_responseFactor.py
+  - python tests/test_winqxas.py
+  - python tests/test_blankCorrection.py
+  - python tests/test_micromatter.py
+  - python tests/test_shimadzu.py
+  - python tests/test_fitResponseFactor.py
